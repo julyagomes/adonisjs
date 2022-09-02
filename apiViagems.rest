@@ -1,0 +1,36 @@
+######### Cadastro Viagem
+
+POST http://127.0.0.1:3333/topics HTTP/1.1
+Content-Type:  application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
+
+{
+    "lugar": "EUA",
+    "viagem": "Disney"
+}
+
+##### Listar todas as viagem 
+GET http://127.0.0.1:3333/topics HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
+
+
+######### Listar viagem específica
+GET http://127.0.0.1:3333/topics/1 HTTP/1.1
+Content-Type:  application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
+
+####### Alterar viagem
+PUT http://127.0.0.1:3333/topics/1 HTTP/1.1
+Content-Type:  application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
+
+{
+    "lugar": "EUA",
+    "viagem": "Universal"
+}
+
+########## Apagr viagem
+DELETE http://127.0.0.1:3333/topics/1 HTTP/1.1
+Content-Type:  application/json
+Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVy0mH6nQXA-Lyn_YESHiupUXhExRgJG7ep3T40nExz 
