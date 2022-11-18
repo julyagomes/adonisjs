@@ -1,18 +1,18 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Viegems from 'App/Models/Viagems'
-import ViagemsValidator from 'App/Validators/ViagemsValidator'
+import Viagems from 'App/Models/Viagem'
+import ViagemsValidator from 'App/Validators/ViagemValidator'
 import authConfig from '../../../config/auth'
 
 export default class ViagemsController {
 
     public async index({ }: HttpContextContract) {
-        const topic = await Viagems.query().preload('user').orderBy('id')
+        const topic = await Viagems.all()
         return topic
     }
 
     public async store({ request }: HttpContextContract) {
     const data = await request.validate(ViagemsValidator)
-    const topic = await Viagems.create({...data, userId: authConfig.user?.id })
+    const topic = await Viagems.create({...data })
     return topic
     }
 
@@ -26,10 +26,12 @@ export default class ViagemsController {
     }
 
     public async update({ request, params, response }: HttpContextContract) {
-        const { lugar, Viagems } = await request.validate(ViagemsValidator)
+        const { lugar, valor, nome } = await request.validate(ViagemsValidator)
         try {
             const topic = await Viagems.findOrFail(params.id)
             topic.lugar = lugar
+            topic.valor = valor
+            topic.nome = nome
             await topic.save()
             return topic 
 

@@ -1,4 +1,4 @@
-import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
+import { schema, rules, CustomMessages } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class ViagemValidator {
@@ -30,9 +30,7 @@ export default class ViagemValidator {
     lugar: schema.string({}, [
       rules.required()
     ]),
-    valor: schema.float({}, [
-      rules.required()
-    ]),
+    valor: schema.number(),
   })
 
   /**
@@ -50,3 +48,4 @@ export default class ViagemValidator {
     required: "O {{field}} é obrigatório para cadastrar o tópico!!!",
   }
 
+}
