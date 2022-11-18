@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Viagems from 'App/Models/Viagem'
 import ViagemsValidator from 'App/Validators/ViagemValidator'
-import authConfig from '../../../config/auth'
+
 
 export default class ViagemsController {
 
